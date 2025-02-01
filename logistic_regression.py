@@ -104,3 +104,10 @@ def logistic_regression(x_train, y_train, x_text, y_test, learning_rate, num_ite
     print("test accuracy {} %".format(100 - np.mean(np.abs(y_prediction_test - y_test)) * 100))
     
 logistic_regression(x_train, y_train, x_test, y_test, learning_rate = 1, num_iterations = 300)
+
+# %% logistic regresssion with sklearn
+from sklearn.linear_model import LogisticRegression
+lr = LogisticRegression()
+
+lr.fit(x_train.T, y_train.T)
+print("Test accuracy: {}%".format(lr.score(x_test.T, y_test.T)))
